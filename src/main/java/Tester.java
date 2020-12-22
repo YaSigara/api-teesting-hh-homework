@@ -13,17 +13,19 @@ import java.util.stream.Collectors;
 
 
 public class Tester {
-    private final String API = "https://api.hh.ru/vacancies?text=";
+    private static final String API = "https://api.hh.ru/vacancies?text=";
+    public static void main(String[] args) throws Exception {
+        testReq();
+    }
 
-    @Test
-    public void testReq() throws Exception {
+    public static void testReq() throws Exception {
         RestTemplate retTemp = new RestTemplate();
         HttpHeaders header = new HttpHeaders();
         header.setContentType(MediaType.APPLICATION_JSON);
         header.add("authorisation", "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P");
 
         String otchet="";
-        File output = new File("src\\test\\otchet\\otchet.txt");
+        File output = new File("otchet.txt");
         writeUsingFileWriter("",output,false);
 
         String[] testvalues = {
